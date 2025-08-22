@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "e582b96b-1515-4d6b-b974-0ddee7781b25",
+		"name": "Loan Apps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1241567",
+		"_collection_link": "https://vbarrio.postman.co/workspace/nashrulloh~b1ad8d2c-47d1-433a-b0c9-8572dc527174/collection/1241567-e582b96b-1515-4d6b-b974-0ddee7781b25?action=share&source=collection_link&creator=1241567"
+	},
+	"item": [
+		{
+			"name": "Token Auth",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"203924\",\n    \"action\": \"approval\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pengjuan",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"access_token\": \"203924\",\n    \"user_id\": \"68a71c76b0df93c48b8a93b0\",\n    \"amount\": 5000000,\n    \"tenor\":50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/loan/submission",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"loan",
+						"submission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve Loan",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"access_token\": \"1755823844607224\",\n    \"officer_id\": \"68a71c76b0df93c48b8a93af\",\n    \"loan_id\": \"68a746f0b060ee758836ae64\",\n    \"approval_status\": \"approved\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/loan/approval/installment/68a746f0b060ee758836ae64",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"loan",
+						"approval",
+						"installment",
+						"68a746f0b060ee758836ae64"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment Installment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 110000,\n    \"payment_method\": \"CASH\",\n    \"paid_by\": \"swike\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/loan/payment/installment/68a746f0b060ee758836ae64",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"loan",
+						"payment",
+						"installment",
+						"68a746f0b060ee758836ae64"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cek Deliquent",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 110000,\n    \"payment_method\": \"CASH\",\n    \"paid_by\": \"swike\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/loan/deliquent/installment/cek/68a746f0b060ee758836ae64",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"loan",
+						"deliquent",
+						"installment",
+						"cek",
+						"68a746f0b060ee758836ae64"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
